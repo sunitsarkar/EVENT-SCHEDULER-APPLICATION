@@ -10,10 +10,13 @@ const app = express();
 app.use(bodyParser.json());
 // app.use(urlencoded({extended:true}));
 const uri="mongodb+srv://sunitsarkar:LwP8bgRq3VOKlHWI@cluster0.gxschpx.mongodb.net/?retryWrites=true&w=majority"
-
-mongoose.set('strictQuery',false)
-mongoose.connect(uri)
-
+mongoose.set('strictQuery',false);
+mongoose.connect(dburl,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(()=>{
+    console.log('connedted to databse')
+})
 
 
 
